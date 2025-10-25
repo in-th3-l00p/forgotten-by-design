@@ -7,7 +7,7 @@ find_package(SDL3 REQUIRED CONFIG)
 add_executable(forgotten_by_design main.cpp
         engine/Engine.cpp
         engine/Engine.h
-        graphics/Window.cpp
-        graphics/Window.h
+        engine/graphics/Window.cpp
+        engine/graphics/Window.h
 )
 target_link_libraries(forgotten_by_design PRIVATE SDL3::SDL3)
