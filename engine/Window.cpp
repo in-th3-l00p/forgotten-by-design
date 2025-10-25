@@ -2,12 +2,12 @@
 // Created by Tisca Catalin on 26.10.2025.
 //
 
-#include "Window.h"
+#include "graphics/Window.h"
 
 #include <stdexcept>
 #include <string>
 
-#include "../../utils/Logging.h"
+#include "../utils/Logging.h"
 
 
 void Window::initialize() {

@@ -5,7 +5,7 @@
 #ifndef ECS_H
 #define ECS_H
 
-#include "graphics/Window.h"
+#include "Window.h"
 
 class Engine {
     bool running = true;
