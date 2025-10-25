@@ -8,7 +8,7 @@
 #include <SDL3/SDL.h>
 
 namespace config {
-    static constexpr char* title = "forgotten by design";
+    static const char* title = "forgotten by design";
     static constexpr int initial_width = 1280;
     static constexpr int initial_height = 720;
 }

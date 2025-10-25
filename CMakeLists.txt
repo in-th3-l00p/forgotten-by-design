@@ -9,5 +9,6 @@ add_executable(forgotten_by_design main.cpp
         engine/Engine.h
         engine/graphics/Window.cpp
         engine/graphics/Window.h
+        utils/Logging.h
 )
 target_link_libraries(forgotten_by_design PRIVATE SDL3::SDL3)

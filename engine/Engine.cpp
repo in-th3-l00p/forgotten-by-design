@@ -9,6 +9,8 @@
 #include <string>
 #include <SDL3/SDL.h>
 
+#include "../utils/Logging.h"
+
 Engine::Engine() {
     if (!SDL_Init(SDL_INIT_VIDEO))
         throw std::runtime_error(std::string{"SDL_Init failed: "} + SDL_GetError());
@@ -28,7 +30,7 @@ void Engine::run() noexcept {
                 running = false;
                 break;
             default:
-                std::print("unhandled event type: {}\n", event.type);
+                logging::info("unhandled event type: {}\n", event.type);
             }
         }
 
