@@ -7,6 +7,8 @@
 #include <stdexcept>
 #include <string>
 
+#include "../../utils/Logging.h"
+
 
 void Window::initialize() {
     if (!SDL_CreateWindowAndRenderer(
@@ -16,9 +18,9 @@ void Window::initialize() {
         SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL,
         &window,
         &renderer
-    )) {
-            throw std::runtime_error(std::string("failed to create window and renderer: ") + SDL_GetError());
-    }
+    ))
+        throw std::runtime_error(std::string("failed to create window and renderer: ") + SDL_GetError());
+    logging::info("window initialized successfully");
 }
 
 Window::~Window() noexcept {

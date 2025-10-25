@@ -14,6 +14,7 @@
 Engine::Engine() {
     if (!SDL_Init(SDL_INIT_VIDEO))
         throw std::runtime_error(std::string{"SDL_Init failed: "} + SDL_GetError());
+    logging::info("sdl3 initialized successfully");
     window.initialize();
 }
 
@@ -27,10 +28,11 @@ void Engine::run() noexcept {
         while (SDL_PollEvent(&event)) {
             switch (event.type) {
                 case SDL_EVENT_QUIT:
-                running = false;
-                break;
-            default:
-                logging::info("unhandled event type: {}\n", event.type);
+                    logging::info("sdl3 event quit triggered");
+                    running = false;
+                    break;
+                default:
+                    break;
             }
         }
 
