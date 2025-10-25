@@ -2,7 +2,7 @@
 // Created by Tisca Catalin on 26.10.2025.
 //
 
-#include "graphics/Window.h"
+#include "Window.h"
 
 #include <stdexcept>
 #include <string>

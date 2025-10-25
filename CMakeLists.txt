@@ -10,5 +10,9 @@ add_executable(forgotten_by_design main.cpp
         engine/Window.cpp
         engine/Window.h
         utils/Logging.h
+        engine/raycasting/Renderer.cpp
+        engine/raycasting/Renderer.h
+        engine/raycasting/Map.h
+        engine/raycasting/Player.h
 )
 target_link_libraries(forgotten_by_design PRIVATE SDL3::SDL3)
