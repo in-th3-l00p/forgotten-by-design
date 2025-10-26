@@ -16,53 +16,61 @@ namespace math {
             y = ny;
         }
 
-        vec2 operator+(const vec2& other) const {
+        vec2 operator+(const vec2 &other) const {
             return {x + other.x, y + other.y};
         }
-        vec2 operator-(const vec2& other) const {
+
+        vec2 operator-(const vec2 &other) const {
             return {x - other.x, y - other.y};
         }
+
         vec2 operator*(float scalar) const {
             return {x * scalar, y * scalar};
         }
+
         vec2 operator/(float scalar) const {
             return {x / scalar, y / scalar};
         }
 
-        vec2& operator+=(const vec2& other) {
+        vec2 &operator+=(const vec2 &other) {
             x += other.x;
             y += other.y;
             return *this;
         }
-        vec2& operator-=(const vec2& other) {
+
+        vec2 &operator-=(const vec2 &other) {
             x -= other.x;
             y -= other.y;
             return *this;
         }
-        vec2& operator*=(float scalar) {
+
+        vec2 &operator*=(float scalar) {
             x *= scalar;
             y *= scalar;
             return *this;
         }
-        vec2& operator/=(float scalar) {
+
+        vec2 &operator/=(float scalar) {
             x /= scalar;
             y /= scalar;
             return *this;
         }
 
-        [[nodiscard]] float dot(const vec2& other) const {
+        [[nodiscard]] float dot(const vec2 &other) const {
             return x * other.x + y * other.y;
         }
+
         [[nodiscard]] float length() const {
             return std::hypot(x, y);
         }
+
         [[nodiscard]] vec2 normalized() const {
             const float len = length();
             if (len == 0.0f) return {0.0f, 0.0f};
             return {x / len, y / len};
         }
 
-        friend vec2 operator*(float scalar, const vec2& v) {
+        friend vec2 operator*(float scalar, const vec2 &v) {
             return {v.x * scalar, v.y * scalar};
         }
     };
