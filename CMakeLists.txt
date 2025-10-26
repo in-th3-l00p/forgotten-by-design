@@ -14,7 +14,7 @@ add_executable(forgotten_by_design main.cpp
         engine/raycasting/Renderer.h
         engine/raycasting/Map.h
         engine/raycasting/Player.h
-        engine/Scene.cpp
-        engine/Scene.h
+        engine/domain/Scene.cpp
+        engine/domain/Scene.h
 )
 target_link_libraries(forgotten_by_design PRIVATE SDL3::SDL3)
