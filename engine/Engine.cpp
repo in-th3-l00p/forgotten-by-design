@@ -45,7 +45,7 @@ namespace engine {
         Uint64 last = SDL_GetPerformanceCounter();
         while (running) {
             Uint64 now = SDL_GetPerformanceCounter();
-            auto dt = (float)((now - last) / (double)freq);
+            auto dt = (float) ((now - last) / (double) freq);
             last = now;
 
             SDL_Event event;
