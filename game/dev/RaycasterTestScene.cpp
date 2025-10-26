@@ -2,12 +2,12 @@
 
 #include <cmath>
 #include "imgui.h"
-#include "../../utils/Logging.h"
+#include "../../utils/logging.h"
 
 namespace game {
     RaycasterTestScene::RaycasterTestScene():
         map(TestMap()),
-        player(engine::domain::Player{1.5, 1.5, 0.2, 1, 0}) {
+        player(engine::domain::Player{{ 1.5, 1.5 }, {1, 0}, 0.2}) {
         raycaster = std::make_unique<engine::raycasting::Renderer>(map, player);
         logging::info("raycaster test scene loaded");
     }
@@ -58,8 +58,8 @@ namespace game {
 
         draw->AddEllipseFilled(
             ImVec2(
-                canvas_pos.x + player.x * tile_width,
-                canvas_pos.y + player.y * tile_height
+                canvas_pos.x + player.pos.x * tile_width,
+                canvas_pos.y + player.pos.y * tile_height
             ),
             ImVec2(
                 player.radius * tile_width,
@@ -70,12 +70,12 @@ namespace game {
 
         draw->AddLine(
             ImVec2(
-                canvas_pos.x + player.x * tile_width,
-                canvas_pos.y + player.y * tile_height
+                canvas_pos.x + player.pos.x * tile_width,
+                canvas_pos.y + player.pos.y * tile_height
             ),
             ImVec2(
-                canvas_pos.x + player.x * tile_width + player.dirX * 20,
-                canvas_pos.y + player.y * tile_height + player.dirY * 20
+                canvas_pos.x + player.pos.x * tile_width + player.dir.x * 20,
+                canvas_pos.y + player.pos.y * tile_height + player.dir.y * 20
             ),
             IM_COL32(218, 112, 214, 255)
         );

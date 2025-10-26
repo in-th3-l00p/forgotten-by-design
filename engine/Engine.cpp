@@ -7,7 +7,7 @@
 
 #include "imgui_impl_sdl3.h"
 #include "imgui_impl_sdlrenderer3.h"
-#include "../utils/Logging.h"
+#include "../utils/logging.h"
 
 namespace engine {
     Engine::Engine() {

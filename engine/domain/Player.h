@@ -1,10 +1,12 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#include "../../utils/math.h"
+
 namespace engine::domain {
     struct Player {
-        float x, y, radius;
-        float dirX, dirY;
+        math::vec2 pos, dir;
+        float radius;
     };
 } // raycasting
 

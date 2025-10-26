@@ -45,6 +45,7 @@ add_executable(forgotten_by_design main.cpp
         game/dev/RaycasterTestScene.h
         game/dev/TestMap.cpp
         game/dev/TestMap.h
+        utils/math.h
 )
 
 target_link_libraries(forgotten_by_design PRIVATE SDL3::SDL3)

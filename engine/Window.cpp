@@ -3,7 +3,7 @@
 #include <stdexcept>
 #include <string>
 
-#include "../utils/Logging.h"
+#include "../utils/logging.h"
 
 namespace engine {
     void Window::initialize() {
