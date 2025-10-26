@@ -41,7 +41,13 @@ namespace engine {
         if (scene == nullptr)
             throw std::runtime_error("engine cannot run when scene is null, call engine::set_scene first");
 
+        Uint64 freq = SDL_GetPerformanceFrequency();
+        Uint64 last = SDL_GetPerformanceCounter();
         while (running) {
+            Uint64 now = SDL_GetPerformanceCounter();
+            auto dt = (float)((now - last) / (double)freq);
+            last = now;
+
             SDL_Event event;
             while (SDL_PollEvent(&event)) {
                 ImGui_ImplSDL3_ProcessEvent(&event);
@@ -55,7 +61,7 @@ namespace engine {
                 }
             }
 
-            scene->update(0);
+            scene->update(dt);
 
             ImGui_ImplSDLRenderer3_NewFrame();
             ImGui_ImplSDL3_NewFrame();

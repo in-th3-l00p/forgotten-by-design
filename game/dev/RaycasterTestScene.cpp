@@ -15,9 +15,8 @@ namespace game {
 
     RaycasterTestScene::~RaycasterTestScene() = default;
 
-    void RaycasterTestScene::update(const float deltaTime) {
-        float dt = 0.05;
-        controller::keyboard_player(player, dt);
+    void RaycasterTestScene::update(float& deltaTime) {
+        controller::keyboard_player(player, deltaTime);
         Scene::update(deltaTime);
     }
 
