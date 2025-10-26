@@ -17,8 +17,8 @@ namespace engine {
         explicit Engine();
         ~Engine() noexcept;
 
-        void set_scene(Scene* scene);
-        void run() noexcept;
+        void set_scene(Scene* scene) noexcept;
+        void run();
     };
 }
 

@@ -19,11 +19,11 @@ namespace engine {
         SDL_Quit();
     }
 
-    void Engine::set_scene(Scene* scene) {
+    void Engine::set_scene(Scene* scene) noexcept {
         this->scene = std::shared_ptr<Scene>(scene);
     }
 
-    void Engine::run() noexcept {
+    void Engine::run() {
         if (scene == nullptr)
             throw std::runtime_error("engine cannot run when scene is null, call engine::set_scene first");
 
