@@ -17,6 +17,7 @@ namespace game {
         ~RaycasterTestScene() override;
 
         void update(float deltaTime) override;
+        void ui() override;
         void render(engine::Window& window) const override;
     };
 }

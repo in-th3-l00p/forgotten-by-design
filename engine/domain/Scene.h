@@ -9,6 +9,7 @@ namespace engine {
         virtual ~Scene() = default;
 
         virtual void update(float deltaTime) {}
+        virtual void ui() {}
         virtual void render(Window& window) const {}
     };
 }

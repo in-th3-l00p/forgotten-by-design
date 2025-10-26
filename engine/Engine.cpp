@@ -55,9 +55,20 @@ namespace engine {
                 }
             }
 
+            scene->update(0);
+
+            ImGui_ImplSDLRenderer3_NewFrame();
+            ImGui_ImplSDL3_NewFrame();
+            ImGui::NewFrame();
+            scene->ui();
+            ImGui::Render();
+
             SDL_SetRenderDrawColor(window.renderer1(), 0, 0, 0, 255);
             SDL_RenderClear(window.renderer1());
 
+            scene->render(window);
+
+            ImGui_ImplSDLRenderer3_RenderDrawData(ImGui::GetDrawData(), window.renderer1());
             SDL_RenderPresent(window.renderer1());
         }
     }

@@ -6,8 +6,10 @@ find_package(SDL3 REQUIRED CONFIG)
 
 # defining "imgui"
 add_library(imgui
+        vendor/imgui/imconfig.h
         vendor/imgui/imgui.h
         vendor/imgui/imgui.cpp
+        vendor/imgui/imgui_demo.cpp
         vendor/imgui/imgui_draw.cpp
         vendor/imgui/imgui_internal.h
         vendor/imgui/imgui_tables.cpp

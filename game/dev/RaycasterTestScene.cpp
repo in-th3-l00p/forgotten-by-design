@@ -1,5 +1,6 @@
 #include "RaycasterTestScene.h"
 
+#include "imgui.h"
 #include "../../utils/Logging.h"
 
 namespace game {
@@ -15,6 +16,11 @@ namespace game {
 
     void RaycasterTestScene::update(const float deltaTime) {
         Scene::update(deltaTime);
+    }
+
+    void RaycasterTestScene::ui() {
+        ImGui::ShowDemoWindow();
+        Scene::ui();
     }
 
     void RaycasterTestScene::render(engine::Window &window) const {
