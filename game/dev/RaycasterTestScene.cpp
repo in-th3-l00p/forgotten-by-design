@@ -7,7 +7,7 @@
 namespace game {
     RaycasterTestScene::RaycasterTestScene():
         map(TestMap()),
-        player(engine::domain::Player{{ 1.5, 1.5 }, {1, 0}, 0.2}) {
+        player(engine::domain::Player{{1.5, 1.5}, {1, 0}, 0.2}) {
         raycaster = std::make_unique<engine::raycasting::Renderer>(map, player);
         logging::info("raycaster test scene loaded");
     }
