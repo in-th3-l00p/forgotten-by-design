@@ -5,6 +5,8 @@
 #include <string>
 #include <SDL3/SDL.h>
 
+#include "imgui_impl_sdl3.h"
+#include "imgui_impl_sdlrenderer3.h"
 #include "../utils/Logging.h"
 
 namespace engine {
@@ -13,6 +15,18 @@ namespace engine {
             throw std::runtime_error(std::string{"SDL_Init failed: "} + SDL_GetError());
         logging::info("sdl3 initialized successfully");
         window.initialize();
+
+        // initializing imgui
+        IMGUI_CHECKVERSION();
+        ImGui::CreateContext();
+        ImGuiIO& io = ImGui::GetIO(); (void)io;
+        io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
+        io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
+        ImGui::StyleColorsDark();
+        ImGui_ImplSDL3_InitForSDLRenderer(window.window1(), window.renderer1());
+        ImGui_ImplSDLRenderer3_Init(window.renderer1());
+
+        logging::info("imgui initialized successfully");
     }
 
     Engine::~Engine() noexcept {
@@ -30,6 +44,7 @@ namespace engine {
         while (running) {
             SDL_Event event;
             while (SDL_PollEvent(&event)) {
+                ImGui_ImplSDL3_ProcessEvent(&event);
                 switch (event.type) {
                     case SDL_EVENT_QUIT:
                         logging::info("sdl3 event quit triggered");
