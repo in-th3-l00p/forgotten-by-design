@@ -1,12 +1,13 @@
 #include "RaycasterTestScene.h"
 
+#include <cmath>
 #include "imgui.h"
 #include "../../utils/Logging.h"
 
 namespace game {
     RaycasterTestScene::RaycasterTestScene():
         map(TestMap()),
-        player(engine::domain::Player { 1.5, 1.5, 0.2 })
+        player(engine::domain::Player { 1.5, 1.5, 0.2, 1, 0 })
     {
         raycaster = std::make_unique<engine::raycasting::Renderer>(map, player);
         logging::info("raycaster test scene loaded");
@@ -18,8 +19,8 @@ namespace game {
         Scene::update(deltaTime);
     }
 
-    void RaycasterTestScene::ui() {
-        ImGui::SetNextWindowSize(ImVec2(200, 215), ImGuiCond_Once);
+    void RaycasterTestScene::render_minimap() const {
+        ImGui::SetNextWindowSize(ImVec2(300, 319), ImGuiCond_Once);
         ImGui::Begin("Minimap", nullptr, ImGuiWindowFlags_NoResize);
 
         auto canvas_pos = ImGui::GetCursorScreenPos();
@@ -55,7 +56,36 @@ namespace game {
                     color
                 );
             }
+
+        draw->AddEllipseFilled(
+            ImVec2(
+                canvas_pos.x + player.x * tile_width,
+                canvas_pos.y + player.y * tile_height
+            ),
+            ImVec2(
+                player.radius * tile_width,
+                player.radius * tile_height
+            ),
+            IM_COL32(218,112,214, 255)
+        );
+
+        draw->AddLine(
+            ImVec2(
+                canvas_pos.x + player.x * tile_width,
+                canvas_pos.y + player.y * tile_height
+            ),
+            ImVec2(
+                canvas_pos.x + player.x * tile_width + player.dirX * 20,
+                canvas_pos.y + player.y * tile_height + player.dirY * 20
+            ),
+            IM_COL32(218,112,214, 255)
+        );
+
         ImGui::End();
+    }
+
+    void RaycasterTestScene::ui() {
+        this->render_minimap();
 
         Scene::ui();
     }

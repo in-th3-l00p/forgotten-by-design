@@ -4,6 +4,7 @@
 namespace engine::domain {
     struct Player {
         float x, y, radius;
+        float dirX, dirY;
     };
 } // raycasting
 

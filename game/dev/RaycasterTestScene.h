@@ -12,6 +12,8 @@ namespace game {
         engine::domain::Player player;
         std::unique_ptr<engine::raycasting::Renderer> raycaster;
 
+        void render_minimap() const;
+
     public:
         RaycasterTestScene();
         ~RaycasterTestScene() override;
