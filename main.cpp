@@ -1,6 +1,5 @@
-#include "engine/Engine.h"
+#include "game/game.h"
 
 int main() {
-    auto engine = engine::Engine();
-    engine.run();
+    game::run();
 }
