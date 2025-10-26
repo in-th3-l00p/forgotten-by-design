@@ -4,6 +4,7 @@
 
 #ifndef SCENE_H
 #define SCENE_H
+#include "../Window.h"
 
 
 namespace engine {
@@ -13,7 +14,7 @@ namespace engine {
         virtual ~Scene();
 
         virtual void update(float deltaTime);
-        virtual void render();
+        virtual void render(Window& window) const;
     };
 }
 

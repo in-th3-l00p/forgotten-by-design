@@ -6,7 +6,7 @@
 #define PLAYER_H
 
 namespace engine {
-    namespace raycasting {
+    namespace domain {
         struct Player {
             float x, y, radius;
         };

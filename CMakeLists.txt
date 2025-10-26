@@ -12,10 +12,13 @@ add_executable(forgotten_by_design main.cpp
         utils/Logging.h
         engine/raycasting/Renderer.cpp
         engine/raycasting/Renderer.h
-        engine/raycasting/Map.h
-        engine/raycasting/Player.h
-        engine/domain/Scene.cpp
+        engine/domain/Map.h
+        engine/domain/Player.h
         engine/domain/Scene.h
         game/game.h
+        game/dev/RaycasterTestScene.cpp
+        game/dev/RaycasterTestScene.h
+        game/dev/TestMap.cpp
+        game/dev/TestMap.h
 )
 target_link_libraries(forgotten_by_design PRIVATE SDL3::SDL3)

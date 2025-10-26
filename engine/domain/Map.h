@@ -5,9 +5,10 @@
 #ifndef MAP_H
 #define MAP_H
 #include <cstdint>
+#include <optional>
 
 namespace engine {
-    namespace raycasting {
+    namespace domain {
 
         enum Color {
             WHITE,
@@ -15,7 +16,8 @@ namespace engine {
         };
 
         struct Tile {
-            Color color;
+            bool empty = false;
+            std::optional<Color> color;
         };
 
         class Map {
@@ -23,13 +25,16 @@ namespace engine {
             std::uint32_t height;
 
         public:
-            Map(std::uint32_t width, std::uint32_t height)
+            Map(
+                const std::uint32_t width,
+                const std::uint32_t height
+            )
                 : width(width),
                   height(height) {
             }
             virtual ~Map() = default;
 
-            virtual Tile & get_tile(std::uint32_t x, std::uint32_t y) = 0;
+            [[nodiscard]] virtual Tile get_tile(std::uint32_t x, std::uint32_t y) const;
         };
 
     } // raycasting

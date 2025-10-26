@@ -8,7 +8,7 @@
 
 namespace engine {
     namespace raycasting {
-        void Renderer::render(Window &window) {
+        void Renderer::render(Window &window) const {
             logging::error("raycasting not implemented yet");
         }
     } // raycasting

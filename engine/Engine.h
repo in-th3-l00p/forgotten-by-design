@@ -13,7 +13,6 @@ namespace engine {
     class Engine {
         bool running = true;
         Window window;
-        std::unique_ptr<raycasting::Renderer> raycaster;
 
     public:
         Engine();
