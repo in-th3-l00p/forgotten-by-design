@@ -6,8 +6,10 @@
 
 #include "../../utils/Logging.h"
 
-namespace raycasting {
-    void Renderer::render(Window &window) {
-        logging::error("raycasting not implemented yet");
-    }
-} // raycasting
+namespace engine {
+    namespace raycasting {
+        void Renderer::render(Window &window) {
+            logging::error("raycasting not implemented yet");
+        }
+    } // raycasting
+}

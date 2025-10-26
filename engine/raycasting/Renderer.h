@@ -8,22 +8,23 @@
 #include "Player.h"
 #include "../Window.h"
 
+namespace engine {
+    namespace raycasting {
 
-namespace raycasting {
+        class Renderer {
+            Map& map;
+            Player& player;
 
-class Renderer {
-    Map& map;
-    Player& player;
+        public:
+            Renderer(Map &map, Player &player)
+                : map(map),
+                  player(player) {
+            }
 
-public:
-    Renderer(Map &map, Player &player)
-        : map(map),
-          player(player) {
-    }
+            void render(Window &window);
+        };
 
-    void render(Window &window);
-};
-
-} // raycasting
+    } // raycasting
+}
 
 #endif //RENDERER_H

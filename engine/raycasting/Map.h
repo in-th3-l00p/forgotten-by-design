@@ -6,31 +6,33 @@
 #define MAP_H
 #include <cstdint>
 
-namespace raycasting {
+namespace engine {
+    namespace raycasting {
 
-enum Color {
-    WHITE,
-    PURPLE
-};
+        enum Color {
+            WHITE,
+            PURPLE
+        };
 
-struct Tile {
-    Color color;
-};
+        struct Tile {
+            Color color;
+        };
 
-class Map {
-    std::uint32_t width;
-    std::uint32_t height;
+        class Map {
+            std::uint32_t width;
+            std::uint32_t height;
 
-public:
-    Map(std::uint32_t width, std::uint32_t height)
-        : width(width),
-          height(height) {
-    }
-    virtual ~Map() = default;
+        public:
+            Map(std::uint32_t width, std::uint32_t height)
+                : width(width),
+                  height(height) {
+            }
+            virtual ~Map() = default;
 
-    virtual Tile & get_tile(std::uint32_t x, std::uint32_t y) = 0;
-};
+            virtual Tile & get_tile(std::uint32_t x, std::uint32_t y) = 0;
+        };
 
-} // raycasting
+    } // raycasting
+}
 
 #endif //MAP_H

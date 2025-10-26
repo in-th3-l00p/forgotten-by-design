@@ -6,18 +6,21 @@
 #define ECS_H
 
 #include "Window.h"
+#include "raycasting/Renderer.h"
+#include <memory>
 
-class Engine {
-    bool running = true;
-    Window window;
+namespace engine {
+    class Engine {
+        bool running = true;
+        Window window;
+        std::unique_ptr<raycasting::Renderer> raycaster;
 
-public:
-    Engine();
-    ~Engine() noexcept;
+    public:
+        Engine();
+        ~Engine() noexcept;
 
-    void run() noexcept;
-};
-
-
+        void run() noexcept;
+    };
+}
 
 #endif //ECS_H

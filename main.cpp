@@ -1,6 +1,6 @@
 #include "engine/Engine.h"
 
 int main() {
-    auto engine = Engine();
+    auto engine = engine::Engine();
     engine.run();
 }
