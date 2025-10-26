@@ -3,6 +3,7 @@
 #include <cmath>
 #include "imgui.h"
 #include "../../utils/logging.h"
+#include "../controller/keyboard_player.h"
 
 namespace game {
     RaycasterTestScene::RaycasterTestScene():
@@ -15,6 +16,8 @@ namespace game {
     RaycasterTestScene::~RaycasterTestScene() = default;
 
     void RaycasterTestScene::update(const float deltaTime) {
+        float dt = 0.05;
+        game::controller::keyboard_player(player, dt);
         Scene::update(deltaTime);
     }
 

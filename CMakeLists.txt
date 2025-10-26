@@ -46,6 +46,8 @@ add_executable(forgotten_by_design main.cpp
         game/dev/TestMap.cpp
         game/dev/TestMap.h
         utils/math.h
+        game/controller/keyboard_player.h
+        game/config.h
 )
 
 target_link_libraries(forgotten_by_design PRIVATE SDL3::SDL3)
