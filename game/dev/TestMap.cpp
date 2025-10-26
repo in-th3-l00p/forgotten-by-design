@@ -5,14 +5,14 @@ namespace game {
         inline constexpr std::uint32_t width = 8;
         inline constexpr std::uint32_t height = 8;
         inline constexpr int matrix[8][8] = {
-            {1, 1, 1, 1, 1, 1, 1, 1},
-            {1, 0, 0, 0, 1, 0, 0, 1},
-            {1, 0, 0, 0, 1, 0, 0, 1},
-            {1, 0, 0, 1, 1, 0, 0, 1},
-            {1, 0, 0, 1, 0, 0, 1, 1},
+            {1, 2, 2, 1, 1, 1, 1, 1},
+            {1, 0, 0, 0, 1, 0, 0, 2},
+            {1, 0, 0, 0, 2, 0, 0, 1},
+            {2, 0, 0, 2, 2, 0, 0, 1},
+            {2, 0, 0, 2, 0, 0, 1, 1},
             {1, 0, 0, 0, 0, 0, 0, 1},
-            {1, 0, 0, 0, 0, 0, 0, 1},
-            {1, 1, 1, 1, 1, 1, 1, 1}
+            {1, 0, 0, 0, 0, 0, 0, 2},
+            {1, 1, 2, 2, 1, 1, 2, 2}
         };
     }
 
@@ -24,15 +24,13 @@ namespace game {
     ) const {
         switch (map::matrix[y][x]) {
             case 0:
-                return engine::domain::Tile { true, {} };
+                return engine::domain::Tile { {} };
             case 1:
                 return engine::domain::Tile {
-                    false,
                     engine::domain::Color::WHITE
                 };
             default:
                 return engine::domain::Tile {
-                    false,
                     engine::domain::Color::PURPLE
                 };
         }

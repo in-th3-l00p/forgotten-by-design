@@ -9,7 +9,6 @@ namespace engine::domain {
     };
 
     struct Tile {
-        bool empty = false;
         std::optional<Color> color;
     };
 
@@ -28,6 +27,12 @@ namespace engine::domain {
         virtual ~Map() = default;
 
         [[nodiscard]] virtual Tile get_tile(std::uint32_t x, std::uint32_t y) const = 0;
+        [[nodiscard]] std::uint32_t get_width() const {
+            return width;
+        }
+        [[nodiscard]] std::uint32_t get_height() const {
+            return height;
+        }
     };
 
 } // raycasting
