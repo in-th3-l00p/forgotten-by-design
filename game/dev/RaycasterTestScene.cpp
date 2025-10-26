@@ -17,7 +17,7 @@ namespace game {
 
     void RaycasterTestScene::update(const float deltaTime) {
         float dt = 0.05;
-        game::controller::keyboard_player(player, dt);
+        controller::keyboard_player(player, dt);
         Scene::update(deltaTime);
     }
 
