@@ -19,7 +19,14 @@ namespace engine {
         SDL_Quit();
     }
 
+    void Engine::set_scene(Scene* scene) {
+        this->scene = std::shared_ptr<Scene>(scene);
+    }
+
     void Engine::run() noexcept {
+        if (scene == nullptr)
+            throw std::runtime_error("engine cannot run when scene is null, call engine::set_scene first");
+
         while (running) {
             SDL_Event event;
             while (SDL_PollEvent(&event)) {
