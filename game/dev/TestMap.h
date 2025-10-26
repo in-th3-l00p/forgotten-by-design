@@ -1,7 +1,3 @@
-//
-// Created by Tisca Catalin on 26.10.2025.
-//
-
 #ifndef TESTMAP_H
 #define TESTMAP_H
 

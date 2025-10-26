@@ -1,11 +1,6 @@
-//
-// Created by Tisca Catalin on 26.10.2025.
-//
-
 #ifndef SCENE_H
 #define SCENE_H
 #include "../Window.h"
-
 
 namespace engine {
     class Scene {
@@ -17,7 +12,5 @@ namespace engine {
         virtual void render(Window& window) const;
     };
 }
-
-
 
 #endif //SCENE_H
