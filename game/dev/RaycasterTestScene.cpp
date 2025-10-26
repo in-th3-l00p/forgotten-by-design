@@ -7,8 +7,7 @@
 namespace game {
     RaycasterTestScene::RaycasterTestScene():
         map(TestMap()),
-        player(engine::domain::Player { 1.5, 1.5, 0.2, 1, 0 })
-    {
+        player(engine::domain::Player{1.5, 1.5, 0.2, 1, 0}) {
         raycaster = std::make_unique<engine::raycasting::Renderer>(map, player);
         logging::info("raycaster test scene loaded");
     }
@@ -37,7 +36,7 @@ namespace game {
                             color = IM_COL32_WHITE;
                             break;
                         case engine::domain::PURPLE:
-                            color = IM_COL32(218,112,214, 255);
+                            color = IM_COL32(218, 112, 214, 255);
                             break;
                         default:
                             break;
@@ -48,11 +47,11 @@ namespace game {
                     ImVec2(
                         canvas_pos.x + static_cast<float>(x) * tile_width,
                         canvas_pos.y + static_cast<float>(y) * tile_height
-                        ),
+                    ),
                     ImVec2(
                         canvas_pos.x + static_cast<float>(x + 1) * tile_width,
                         canvas_pos.y + static_cast<float>(y + 1) * tile_height
-                        ),
+                    ),
                     color
                 );
             }
@@ -66,7 +65,7 @@ namespace game {
                 player.radius * tile_width,
                 player.radius * tile_height
             ),
-            IM_COL32(218,112,214, 255)
+            IM_COL32(218, 112, 214, 255)
         );
 
         draw->AddLine(
@@ -78,7 +77,7 @@ namespace game {
                 canvas_pos.x + player.x * tile_width + player.dirX * 20,
                 canvas_pos.y + player.y * tile_height + player.dirY * 20
             ),
-            IM_COL32(218,112,214, 255)
+            IM_COL32(218, 112, 214, 255)
         );
 
         ImGui::End();
