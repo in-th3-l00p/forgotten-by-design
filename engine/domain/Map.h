@@ -27,7 +27,7 @@ namespace engine::domain {
         }
         virtual ~Map() = default;
 
-        [[nodiscard]] virtual Tile get_tile(std::uint32_t x, std::uint32_t y) const;
+        [[nodiscard]] virtual Tile get_tile(std::uint32_t x, std::uint32_t y) const = 0;
     };
 
 } // raycasting

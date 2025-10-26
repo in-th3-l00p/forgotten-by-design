@@ -5,11 +5,11 @@
 namespace engine {
     class Scene {
     public:
-        Scene();
-        virtual ~Scene();
+        Scene() = default;
+        virtual ~Scene() = default;
 
-        virtual void update(float deltaTime);
-        virtual void render(Window& window) const;
+        virtual void update(float deltaTime) {}
+        virtual void render(Window& window) const {}
     };
 }
 
