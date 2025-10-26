@@ -116,10 +116,14 @@ namespace {
         // Avoid division by zero for degenerate rays
         constexpr float epsilon = 1e-6f;
         if (rs.side == 0) {
-            const float denom = (std::abs(rs.rayDir.x) < epsilon) ? (rs.rayDir.x < 0 ? -epsilon : epsilon) : rs.rayDir.x;
+            const float denom = (std::abs(rs.rayDir.x) < epsilon)
+                                    ? (rs.rayDir.x < 0 ? -epsilon : epsilon)
+                                    : rs.rayDir.x;
             return (static_cast<float>(rs.mapX) - player.pos.x + (1.0f - static_cast<float>(rs.stepX)) * 0.5f) / denom;
         } else {
-            const float denom = (std::abs(rs.rayDir.y) < epsilon) ? (rs.rayDir.y < 0 ? -epsilon : epsilon) : rs.rayDir.y;
+            const float denom = (std::abs(rs.rayDir.y) < epsilon)
+                                    ? (rs.rayDir.y < 0 ? -epsilon : epsilon)
+                                    : rs.rayDir.y;
             return (static_cast<float>(rs.mapY) - player.pos.y + (1.0f - static_cast<float>(rs.stepY)) * 0.5f) / denom;
         }
     }
@@ -129,12 +133,15 @@ namespace {
         const Tile t = map.get_tile(static_cast<std::uint32_t>(mx), static_cast<std::uint32_t>(my));
         if (t.color.has_value()) {
             switch (t.color.value()) {
-                case Color::WHITE: color = SDL_Color{255, 255, 255, 255}; break;
-                case Color::PURPLE: color = SDL_Color{218, 112, 214, 255}; break;
+                case Color::WHITE: color = SDL_Color{255, 255, 255, 255};
+                    break;
+                case Color::PURPLE: color = SDL_Color{218, 112, 214, 255};
+                    break;
                 default: break;
             }
         }
-        if (side == 1) { // simple shading for y-sides
+        if (side == 1) {
+            // simple shading for y-sides
             color.r = static_cast<Uint8>(color.r * 0.6f);
             color.g = static_cast<Uint8>(color.g * 0.6f);
             color.b = static_cast<Uint8>(color.b * 0.6f);
