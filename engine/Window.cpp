@@ -11,7 +11,7 @@ namespace engine {
             config::title,
             config::initial_width,
             config::initial_height,
-            SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL,
+            SDL_WINDOW_RESIZABLE,
             &window,
             &renderer
         ))
