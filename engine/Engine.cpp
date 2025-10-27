@@ -23,8 +23,8 @@ namespace engine {
         io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
         io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
         ImGui::StyleColorsDark();
-        ImGui_ImplSDL3_InitForSDLRenderer(window.window1(), window.renderer1());
-        ImGui_ImplSDLRenderer3_Init(window.renderer1());
+        ImGui_ImplSDL3_InitForSDLRenderer(window.get_window(), window.get_renderer());
+        ImGui_ImplSDLRenderer3_Init(window.get_renderer());
 
         logging::info("imgui initialized successfully");
     }
@@ -69,13 +69,13 @@ namespace engine {
             scene->ui();
             ImGui::Render();
 
-            SDL_SetRenderDrawColor(window.renderer1(), 0, 0, 0, 255);
-            SDL_RenderClear(window.renderer1());
+            SDL_SetRenderDrawColor(window.get_renderer(), 0, 0, 0, 255);
+            SDL_RenderClear(window.get_renderer());
 
             scene->render(window);
 
-            ImGui_ImplSDLRenderer3_RenderDrawData(ImGui::GetDrawData(), window.renderer1());
-            SDL_RenderPresent(window.renderer1());
+            ImGui_ImplSDLRenderer3_RenderDrawData(ImGui::GetDrawData(), window.get_renderer());
+            SDL_RenderPresent(window.get_renderer());
         }
     }
 }
