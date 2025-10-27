@@ -4,11 +4,10 @@
 #include <SDL3/SDL_events.h>
 
 #include "../config.h"
-#include "../../engine/Window.h"
-#include "../../engine/domain/Player.h"
+#include "../../engine/Player.h"
 
 namespace game::controller {
-    inline void keyboard_player(engine::domain::Player &player, float &deltaTime) {
+    inline void keyboard_player(engine::Player &player, float &delta_time) {
         SDL_PumpEvents();
         const bool *keyboard_state = SDL_GetKeyboardState(nullptr);
         auto translate = static_cast<float>(
@@ -20,8 +19,8 @@ namespace game::controller {
                           keyboard_state[SDL_SCANCODE_A]
                       ) * config::rotate_speed;
 
-        player.dir.rotate(rotate * deltaTime);
-        player.pos += translate * deltaTime * player.dir;
+        player.dir.rotate(rotate * delta_time);
+        player.pos += translate * delta_time * player.dir;
     }
 }
 

@@ -1,17 +1,17 @@
 #ifndef RENDERER_H
 #define RENDERER_H
-#include "../domain/Map.h"
-#include "../domain/Player.h"
+#include "../Map.h"
+#include "../Player.h"
 #include "../Window.h"
 
 namespace engine::raycasting {
 
     class Renderer {
-        const domain::Map& map;
-        const domain::Player& player;
+        const Map& map;
+        const Player& player;
 
     public:
-        Renderer(const domain::Map &map, const domain::Player &player)
+        Renderer(const Map &map, const Player &player)
             : map(map),
               player(player) {
         }

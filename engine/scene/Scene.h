@@ -8,7 +8,7 @@ namespace engine {
         Scene() = default;
         virtual ~Scene() = default;
 
-        virtual void update(float &deltaTime) {}
+        virtual void update(float &delta_time) {}
         virtual void ui() {}
         virtual void render(Window& window) const {}
     };

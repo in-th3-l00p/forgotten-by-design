@@ -2,7 +2,7 @@
 #define MAP_H
 #include <optional>
 
-namespace engine::domain {
+namespace engine {
     enum Color {
         WHITE,
         PURPLE

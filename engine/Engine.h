@@ -4,7 +4,7 @@
 #include <memory>
 
 #include "Window.h"
-#include "domain/Scene.h"
+#include "scene/Scene.h"
 
 namespace engine {
     class Engine {

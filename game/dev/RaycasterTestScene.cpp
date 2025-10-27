@@ -8,16 +8,16 @@
 namespace game {
     RaycasterTestScene::RaycasterTestScene():
         map(TestMap()),
-        player(engine::domain::Player{{1.5, 1.5}, {1, 0}, 0.2}) {
+        player(engine::Player{{1.5, 1.5}, {1, 0}, 0.2}) {
         raycaster = std::make_unique<engine::raycasting::Renderer>(map, player);
         logging::info("raycaster test scene loaded");
     }
 
     RaycasterTestScene::~RaycasterTestScene() = default;
 
-    void RaycasterTestScene::update(float &deltaTime) {
-        controller::keyboard_player(player, deltaTime);
-        Scene::update(deltaTime);
+    void RaycasterTestScene::update(float &delta_time) {
+        controller::keyboard_player(player, delta_time);
+        Scene::update(delta_time);
     }
 
     void RaycasterTestScene::render_minimap() const {
@@ -34,10 +34,10 @@ namespace game {
                 ImU32 color = IM_COL32_BLACK;
                 if (map.get_tile(x, y).color.has_value()) {
                     switch (map.get_tile(x, y).color.value()) {
-                        case engine::domain::WHITE:
+                        case engine::WHITE:
                             color = IM_COL32_WHITE;
                             break;
-                        case engine::domain::PURPLE:
+                        case engine::PURPLE:
                             color = IM_COL32(218, 112, 214, 255);
                             break;
                         default:

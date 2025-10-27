@@ -4,11 +4,11 @@
 #include <numbers>
 
 namespace {
-    using engine::domain::Map;
-    using engine::domain::Player;
-    using engine::domain::Tile;
-    using engine::domain::Color;
     using math::vec2;
+    using engine::Player;
+    using engine::Map;
+    using engine::Tile;
+    using engine::Color;
 
     struct RayState {
         vec2 ray_dir;

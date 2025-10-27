@@ -18,20 +18,20 @@ namespace game {
 
     TestMap::TestMap(): Map(map::width, map::height) {}
 
-    engine::domain::Tile TestMap::get_tile(
+    engine::Tile TestMap::get_tile(
         const std::uint32_t x,
         const std::uint32_t y
     ) const {
         switch (map::matrix[y][x]) {
             case 0:
-                return engine::domain::Tile { {} };
+                return engine::Tile { {} };
             case 1:
-                return engine::domain::Tile {
-                    engine::domain::Color::WHITE
+                return engine::Tile {
+                    engine::Color::WHITE
                 };
             default:
-                return engine::domain::Tile {
-                    engine::domain::Color::PURPLE
+                return engine::Tile {
+                    engine::Color::PURPLE
                 };
         }
     }

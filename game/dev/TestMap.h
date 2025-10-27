@@ -1,14 +1,14 @@
 #ifndef TESTMAP_H
 #define TESTMAP_H
 
-#include "../../engine/domain/Map.h"
+#include "../../engine/Map.h"
 
 namespace game {
-    class TestMap final : public engine::domain::Map {
+    class TestMap final : public engine::Map {
     public:
         TestMap();
 
-        [[nodiscard]] engine::domain::Tile get_tile(std::uint32_t x, std::uint32_t y) const override;
+        [[nodiscard]] engine::Tile get_tile(std::uint32_t x, std::uint32_t y) const override;
     };
 }
 
