@@ -27,9 +27,8 @@ namespace {
         return {-v.y, v.x};
     }
 
-    vec2 build_camera_plane(const Player &player, float fov_degrees) {
-        const float fovRadians = fov_degrees * std::numbers::pi_v<float> / 180.0f;
-        const float planeScale = std::tan(fovRadians / 2.0f);
+    vec2 build_camera_plane(const Player &player, float fov) {
+        const float planeScale = std::tan(fov / 2.0f);
         return perpendicular(player.dir).normalized() * planeScale;
     }
 
@@ -40,7 +39,7 @@ namespace {
         return 1.0f / x;
     }
 
-    RayState init_ray_for_column(
+    RayState init_ray(
         int x,
         int width,
         const Player &player,
@@ -87,11 +86,11 @@ namespace {
     }
 
     bool is_wall(const Map &map, int map_x, int map_y) {
-        const Tile t = map.get_tile(
+        const auto [color] = map.get_tile(
             static_cast<std::uint32_t>(map_x),
             static_cast<std::uint32_t>(map_y)
         );
-        return t.color.has_value();
+        return color.has_value();
     }
 
     void perform_dda(const Map &map, RayState &state) {
@@ -120,26 +119,30 @@ namespace {
         }
     }
 
-    float calculate_perpendicular_wall_distance(
+    float get_wall_distance(
         const Player &player,
         const RayState &state
     ) {
         // avoid division by zero for degenerate rays
         constexpr float epsilon = 1e-6f;
         if (state.side == 0) {
-            // horizontal
+            // denom = 1 / side_dist
             const float denom = (std::abs(state.ray_dir.x) < epsilon)
                                     ? (state.ray_dir.x < 0 ? -epsilon : epsilon)
                                     : state.ray_dir.x;
-            return (static_cast<float>(state.map_x) - player.pos.x + (1.0f - static_cast<float>(state.step_x)) * 0.5f) /
-                   denom;
+            return
+                    (static_cast<float>(state.map_x) - player.pos.x +
+                     (1.0f - static_cast<float>(state.step_x)) * 0.5f) /
+                    denom;
         }
 
         const float denom = (std::abs(state.ray_dir.y) < epsilon)
                                 ? (state.ray_dir.y < 0 ? -epsilon : epsilon)
                                 : state.ray_dir.y;
-        return (static_cast<float>(state.map_y) - player.pos.y + (1.0f - static_cast<float>(state.step_y)) * 0.5f) /
-               denom;
+        return
+                (static_cast<float>(state.map_y) - player.pos.y +
+                 (1.0f - static_cast<float>(state.step_y)) * 0.5f) /
+                denom;
     }
 
     SDL_Color get_color_for_tile(const Map &map, int map_x, int map_y, int side) {
@@ -181,28 +184,34 @@ namespace engine::raycasting {
             return;
 
         // build camera plane from player orientation; 66° mimics classic raycasters (plane length ~0.66)
-        const vec2 cameraPlane = build_camera_plane(player, 66.0f);
+        const vec2 camera_plane = build_camera_plane(player, math::deg2rad(66.0f));
 
         for (int x = 0; x < screen_width; ++x) {
-            RayState ray = init_ray_for_column(x, screen_width, player, cameraPlane);
+            RayState ray = init_ray(x, screen_width, player, camera_plane);
             perform_dda(map, ray);
             if (!ray.hit)
                 continue;
 
-            const float perpDist = calculate_perpendicular_wall_distance(player, ray);
-            if (perpDist <= 0.0f)
+            const float dist = get_wall_distance(player, ray);
+            if (dist <= 0.0f)
                 continue;
 
-            const int lineHeight = static_cast<int>(static_cast<float>(screen_height) / perpDist);
-            int drawStart = -lineHeight / 2 + screen_height / 2;
-            int drawEnd = lineHeight / 2 + screen_height / 2;
-            if (drawStart < 0)
-                drawStart = 0;
-            if (drawEnd >= screen_height)
-                drawEnd = screen_height - 1;
+            const int line_height = static_cast<int>(static_cast<float>(screen_height) / dist);
+            int line_start = -line_height / 2 + screen_height / 2;
+            int line_end = line_height / 2 + screen_height / 2;
+            if (line_start < 0)
+                line_start = 0;
+            if (line_end >= screen_height)
+                line_end = screen_height - 1;
 
             const SDL_Color color = get_color_for_tile(map, ray.map_x, ray.map_y, ray.side);
-            draw_vertical_line(window.get_renderer(), x, drawStart, drawEnd, color);
+            draw_vertical_line(
+                window.get_renderer(),
+                x,
+                line_start,
+                line_end,
+                color
+            );
         }
     }
 } // raycasting
