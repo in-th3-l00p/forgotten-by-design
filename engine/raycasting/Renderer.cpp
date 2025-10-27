@@ -126,17 +126,20 @@ namespace {
     ) {
         // avoid division by zero for degenerate rays
         constexpr float epsilon = 1e-6f;
-        if (state.side == 0) { // horizontal
+        if (state.side == 0) {
+            // horizontal
             const float denom = (std::abs(state.ray_dir.x) < epsilon)
                                     ? (state.ray_dir.x < 0 ? -epsilon : epsilon)
                                     : state.ray_dir.x;
-            return (static_cast<float>(state.map_x) - player.pos.x + (1.0f - static_cast<float>(state.step_x)) * 0.5f) / denom;
+            return (static_cast<float>(state.map_x) - player.pos.x + (1.0f - static_cast<float>(state.step_x)) * 0.5f) /
+                   denom;
         }
 
         const float denom = (std::abs(state.ray_dir.y) < epsilon)
                                 ? (state.ray_dir.y < 0 ? -epsilon : epsilon)
                                 : state.ray_dir.y;
-        return (static_cast<float>(state.map_y) - player.pos.y + (1.0f - static_cast<float>(state.step_y)) * 0.5f) / denom;
+        return (static_cast<float>(state.map_y) - player.pos.y + (1.0f - static_cast<float>(state.step_y)) * 0.5f) /
+               denom;
     }
 
     SDL_Color get_color_for_tile(const Map &map, int map_x, int map_y, int side) {
@@ -173,7 +176,7 @@ namespace {
 namespace engine::raycasting {
     void Renderer::render(Window &window) const {
         int screen_width = 0, screen_height = 0;
-        SDL_GetRenderOutputSize(window.renderer1(), &screen_width, &screen_height);
+        SDL_GetRenderOutputSize(window.get_renderer(), &screen_width, &screen_height);
         if (screen_width <= 0 || screen_height <= 0)
             return;
 
@@ -199,7 +202,7 @@ namespace engine::raycasting {
                 drawEnd = screen_height - 1;
 
             const SDL_Color color = get_color_for_tile(map, ray.map_x, ray.map_y, ray.side);
-            draw_vertical_line(window.renderer1(), x, drawStart, drawEnd, color);
+            draw_vertical_line(window.get_renderer(), x, drawStart, drawEnd, color);
         }
     }
 } // raycasting
