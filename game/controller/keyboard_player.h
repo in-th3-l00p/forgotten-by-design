@@ -4,10 +4,13 @@
 #include <SDL3/SDL_events.h>
 
 #include "../config.h"
-#include "../../engine/Player.h"
+#include "../../entities/Player.h"
 
 namespace game::controller {
-    inline void keyboard_player(engine::Player &player, float &delta_time) {
+    inline void keyboard_player(
+        entity::Player &player,
+        const float &delta_time
+    ) {
         SDL_PumpEvents();
         const bool *keyboard_state = SDL_GetKeyboardState(nullptr);
         auto translate = static_cast<float>(

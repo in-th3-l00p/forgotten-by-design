@@ -3,7 +3,7 @@
 
 #include "../utils/math.h"
 
-namespace engine {
+namespace entity {
     struct Player {
         math::vec2 pos, dir;
         float radius;

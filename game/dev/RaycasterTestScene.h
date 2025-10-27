@@ -9,7 +9,7 @@
 namespace game {
     class RaycasterTestScene: public engine::Scene {
         TestMap map;
-        engine::Player player;
+        entity::Player player;
         std::unique_ptr<engine::raycasting::Renderer> raycaster;
 
         void render_minimap() const;

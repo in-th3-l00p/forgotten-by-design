@@ -1,10 +1,11 @@
 #ifndef RENDERER_H
 #define RENDERER_H
-#include "../Map.h"
-#include "../Player.h"
+#include "../../serialization/Map.h"
+#include "../../entities/Player.h"
 #include "../Window.h"
 
 namespace engine::raycasting {
+    using entity::Player;
 
     class Renderer {
         const Map& map;

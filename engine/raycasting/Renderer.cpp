@@ -5,7 +5,7 @@
 
 namespace {
     using math::vec2;
-    using engine::Player;
+    using entity::Player;
     using engine::Map;
     using engine::Tile;
     using engine::Color;
