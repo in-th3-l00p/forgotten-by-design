@@ -18,11 +18,11 @@ namespace engine {
         void initialize();
         ~Window() noexcept;
 
-        [[nodiscard]] SDL_Window *& get_window() {
+        [[nodiscard]] SDL_Window *&get_window() {
             return window;
         }
 
-        [[nodiscard]] SDL_Renderer *& get_renderer() {
+        [[nodiscard]] SDL_Renderer *&get_renderer() {
             return renderer;
         }
     };
