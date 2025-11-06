@@ -5,7 +5,7 @@
 #include <vector>
 
 namespace engine::serialization {
-    using texture = std::vector<std::vector<std::uint32_t>>;
+    using texture = std::vector<std::vector<std::uint32_t> >;
 
     class TextureStore {
         // textures are map by ids
@@ -16,9 +16,11 @@ namespace engine::serialization {
 
         void load_texture(
             std::uint32_t id,
-            const std::string& path
+            const std::string &path
         );
+
         texture get_texture(std::uint32_t id) const;
+
         void remove_texture(std::uint32_t id);
     };
 } // serialization

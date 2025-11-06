@@ -2,6 +2,7 @@
 #include <SDL3_image/SDL_image.h>
 
 #include "../../../../../../opt/homebrew/Cellar/sdl3/3.2.24/include/SDL3/SDL_surface.h"
+#include "utils/logging.h"
 
 namespace engine::serialization {
     void TextureStore::load_texture(
@@ -13,12 +14,13 @@ namespace engine::serialization {
             throw std::runtime_error("failed to load texture: " + path + "; error: " + SDL_GetError());
         auto texture = std::vector(surface->h, std::vector<std::uint32_t>(surface->w));
         for (int y = 0; y < surface->h; y++) {
-            const auto row = static_cast<std::uint32_t*>(surface->pixels) + y * surface->pitch;
+            const auto row = static_cast<std::uint32_t *>(surface->pixels) + y * surface->pitch;
             for (int x = 0; x < surface->w; x++)
                 texture[y][x] = row[x];
         }
 
         store.insert({id, texture});
+        logging::info("texture {} was loaded and stored at id={}", path, id);
         SDL_DestroySurface(surface);
     }
 
@@ -27,6 +29,7 @@ namespace engine::serialization {
     }
 
     void TextureStore::remove_texture(const std::uint32_t id) {
+        logging::info("texture {} removed", id);
         store.erase(id);
     }
 }
