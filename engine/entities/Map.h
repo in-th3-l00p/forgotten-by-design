@@ -2,7 +2,7 @@
 #define MAP_H
 #include <optional>
 
-namespace engine {
+namespace engine::entities {
     enum Color {
         WHITE,
         PURPLE
@@ -35,6 +35,6 @@ namespace engine {
         }
     };
 
-} // raycasting
+} // entities
 
 #endif //MAP_H

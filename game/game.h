@@ -7,7 +7,7 @@
 namespace game {
     inline void run() {
         auto engine = engine::Engine();
-        engine.set_scene(new RaycasterTestScene());
+        engine.set_scene(new dev::RaycasterTestScene());
         engine.run();
     }
 }

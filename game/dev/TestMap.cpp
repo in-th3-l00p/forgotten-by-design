@@ -1,6 +1,6 @@
 #include "game/dev/TestMap.h"
 
-namespace game {
+namespace game::dev {
     namespace map {
         inline constexpr std::uint32_t width = 8;
         inline constexpr std::uint32_t height = 8;
@@ -16,22 +16,22 @@ namespace game {
         };
     }
 
-    TestMap::TestMap(): Map(map::width, map::height) {}
+    TestMap::TestMap(): engine::entities::Map(map::width, map::height) {}
 
-    engine::Tile TestMap::get_tile(
+    engine::entities::Tile TestMap::get_tile(
         const std::uint32_t x,
         const std::uint32_t y
     ) const {
         switch (map::matrix[y][x]) {
             case 0:
-                return engine::Tile { {} };
+                return engine::entities::Tile { {} };
             case 1:
-                return engine::Tile {
-                    engine::Color::WHITE
+                return engine::entities::Tile {
+                    engine::entities::Color::WHITE
                 };
             default:
-                return engine::Tile {
-                    engine::Color::PURPLE
+                return engine::entities::Tile {
+                    engine::entities::Color::PURPLE
                 };
         }
     }

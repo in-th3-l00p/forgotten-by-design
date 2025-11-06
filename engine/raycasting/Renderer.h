@@ -5,7 +5,8 @@
 #include "engine/Window.h"
 
 namespace engine::raycasting {
-    using entity::Player;
+    using engine::entities::Player;
+    using engine::entities::Map;
 
     class Renderer {
         const Map& map;

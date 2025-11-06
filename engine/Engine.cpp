@@ -33,8 +33,8 @@ namespace engine {
         SDL_Quit();
     }
 
-    void Engine::set_scene(Scene* scene) noexcept {
-        this->scene = std::shared_ptr<Scene>(scene);
+    void Engine::set_scene(scene::Scene* scene) noexcept {
+        this->scene = std::shared_ptr<scene::Scene>(scene);
     }
 
     void Engine::run() {

@@ -5,10 +5,10 @@
 
 namespace {
     using math::vec2;
-    using entity::Player;
-    using engine::Map;
-    using engine::Tile;
-    using engine::Color;
+    using engine::entities::Player;
+    using engine::entities::Map;
+    using engine::entities::Tile;
+    using engine::entities::Color;
 
     struct RayState {
         vec2 ray_dir;

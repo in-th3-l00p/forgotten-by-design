@@ -8,7 +8,7 @@
 
 namespace game::controller {
     inline void keyboard_player(
-        entity::Player &player,
+        engine::entities::Player &player,
         const float &delta_time
     ) {
         SDL_PumpEvents();

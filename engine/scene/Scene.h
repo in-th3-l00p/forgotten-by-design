@@ -2,7 +2,7 @@
 #define SCENE_H
 #include "engine/Window.h"
 
-namespace engine {
+namespace engine::scene {
     class Scene {
     public:
         Scene() = default;

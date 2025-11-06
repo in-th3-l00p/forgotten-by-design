@@ -11,13 +11,13 @@ namespace engine {
         bool running = true;
         Window window;
 
-        std::shared_ptr<Scene> scene;
+        std::shared_ptr<scene::Scene> scene;
 
     public:
         explicit Engine();
         ~Engine() noexcept;
 
-        void set_scene(Scene* scene) noexcept;
+        void set_scene(scene::Scene* scene) noexcept;
         void run();
     };
 }

@@ -4,10 +4,10 @@
 #include "utils/logging.h"
 #include "game/controller/keyboard_player.h"
 
-namespace game {
+namespace game::dev {
     RaycasterTestScene::RaycasterTestScene():
         map(TestMap()),
-        player(entity::Player{{1.5, 1.5}, {1, 0}, 0.2})
+        player(engine::entities::Player{{1.5, 1.5}, {1, 0}, 0.2})
     {
         raycaster = std::make_unique<engine::raycasting::Renderer>(map, player);
         logging::info("raycaster test scene loaded");
@@ -34,10 +34,10 @@ namespace game {
                 ImU32 color = IM_COL32_BLACK;
                 if (map.get_tile(x, y).color.has_value()) {
                     switch (map.get_tile(x, y).color.value()) {
-                        case engine::WHITE:
+                        case engine::entities::WHITE:
                             color = IM_COL32_WHITE;
                             break;
-                        case engine::PURPLE:
+                        case engine::entities::PURPLE:
                             color = IM_COL32(218, 112, 214, 255);
                             break;
                         default:

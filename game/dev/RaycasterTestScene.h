@@ -6,10 +6,10 @@
 #include "engine/scene/Scene.h"
 #include "engine/raycasting/Renderer.h"
 
-namespace game {
-    class RaycasterTestScene: public engine::Scene {
+namespace game::dev {
+    class RaycasterTestScene: public engine::scene::Scene {
         TestMap map;
-        entity::Player player;
+        engine::entities::Player player;
         std::unique_ptr<engine::raycasting::Renderer> raycaster;
 
         void render_minimap() const;

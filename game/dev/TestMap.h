@@ -3,12 +3,12 @@
 
 #include "../../engine/entities/Map.h"
 
-namespace game {
-    class TestMap final : public engine::Map {
+namespace game::dev {
+    class TestMap final : public engine::entities::Map {
     public:
         TestMap();
 
-        [[nodiscard]] engine::Tile get_tile(std::uint32_t x, std::uint32_t y) const override;
+        [[nodiscard]] engine::entities::Tile get_tile(std::uint32_t x, std::uint32_t y) const override;
     };
 }
 
