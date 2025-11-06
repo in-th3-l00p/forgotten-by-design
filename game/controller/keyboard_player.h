@@ -14,13 +14,13 @@ namespace game::controller {
         SDL_PumpEvents();
         const bool *keyboard_state = SDL_GetKeyboardState(nullptr);
         const auto translate = static_cast<float>(
-                             keyboard_state[SDL_SCANCODE_W] -
-                             keyboard_state[SDL_SCANCODE_S]
-                         ) * config::translate_speed;
+                                   keyboard_state[SDL_SCANCODE_W] -
+                                   keyboard_state[SDL_SCANCODE_S]
+                               ) * config::translate_speed;
         const auto rotate = static_cast<float>(
-                          keyboard_state[SDL_SCANCODE_D] -
-                          keyboard_state[SDL_SCANCODE_A]
-                      ) * config::rotate_speed;
+                                keyboard_state[SDL_SCANCODE_D] -
+                                keyboard_state[SDL_SCANCODE_A]
+                            ) * config::rotate_speed;
 
         player.dir.rotate(rotate * delta_time);
         player.pos += translate * delta_time * player.dir;
