@@ -19,7 +19,7 @@ namespace engine::serialization {
             const std::string &path
         );
 
-        texture get_texture(std::uint32_t id) const;
+        [[nodiscard]] texture get_texture(std::uint32_t id) const;
 
         void remove_texture(std::uint32_t id);
     };
