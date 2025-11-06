@@ -3,6 +3,7 @@ project(forgotten_by_design)
 
 set(CMAKE_CXX_STANDARD 26)
 find_package(SDL3 REQUIRED CONFIG)
+find_package(SDL3_image REQUIRED CONFIG)
 
 # defining "imgui"
 add_library(imgui
@@ -48,6 +49,8 @@ add_executable(forgotten_by_design main.cpp
         utils/math.h
         game/controller/keyboard_player.h
         game/config.h
+        engine/serialization/TextureStore.cpp
+        engine/serialization/TextureStore.h
 )
 
 target_include_directories(forgotten_by_design PRIVATE
@@ -55,4 +58,5 @@ target_include_directories(forgotten_by_design PRIVATE
 )
 
 target_link_libraries(forgotten_by_design PRIVATE SDL3::SDL3)
+target_link_libraries(forgotten_by_design PRIVATE SDL3_image::SDL3_image)
 target_link_libraries(forgotten_by_design PRIVATE imgui)

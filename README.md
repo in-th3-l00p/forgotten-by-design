@@ -5,6 +5,7 @@ dda raycasting FPS open source game
 ## third party stuff
 
 * **sdl3** -> used 4 graphics & processing user inputs
+* **sdl3_image** -> I'm not interpreting *png*s from scratch lol
 * **imgui** -> entire GUI of the game
 
 ## structure
