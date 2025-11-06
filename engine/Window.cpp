@@ -1,9 +1,9 @@
-#include "Window.h"
+#include "engine/Window.h"
 
 #include <stdexcept>
 #include <string>
 
-#include "../utils/logging.h"
+#include "utils/logging.h"
 
 namespace engine {
     void Window::initialize() {

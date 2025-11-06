@@ -1,6 +1,6 @@
 #ifndef SCENE_H
 #define SCENE_H
-#include "../Window.h"
+#include "engine/Window.h"
 
 namespace engine {
     class Scene {

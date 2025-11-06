@@ -1,8 +1,8 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "../engine/Engine.h"
-#include "dev/RaycasterTestScene.h"
+#include "engine/Engine.h"
+#include "game/dev/RaycasterTestScene.h"
 
 namespace game {
     inline void run() {

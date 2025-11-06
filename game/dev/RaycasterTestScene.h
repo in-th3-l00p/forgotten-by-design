@@ -2,9 +2,9 @@
 #define RAYCASTERTESTSCENE_H
 #include <memory>
 
-#include "TestMap.h"
-#include "../../engine/scene/Scene.h"
-#include "../../engine/raycasting/Renderer.h"
+#include "game/dev/TestMap.h"
+#include "engine/scene/Scene.h"
+#include "engine/raycasting/Renderer.h"
 
 namespace game {
     class RaycasterTestScene: public engine::Scene {

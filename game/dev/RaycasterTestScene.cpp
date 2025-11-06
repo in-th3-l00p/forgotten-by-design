@@ -1,9 +1,8 @@
-#include "RaycasterTestScene.h"
+#include "game/dev/RaycasterTestScene.h"
 
-#include <cmath>
 #include "imgui.h"
-#include "../../utils/logging.h"
-#include "../controller/keyboard_player.h"
+#include "utils/logging.h"
+#include "game/controller/keyboard_player.h"
 
 namespace game {
     RaycasterTestScene::RaycasterTestScene():

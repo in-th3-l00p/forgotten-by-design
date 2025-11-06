@@ -50,5 +50,9 @@ add_executable(forgotten_by_design main.cpp
         game/config.h
 )
 
+target_include_directories(forgotten_by_design PRIVATE
+        ${PROJECT_SOURCE_DIR}
+)
+
 target_link_libraries(forgotten_by_design PRIVATE SDL3::SDL3)
 target_link_libraries(forgotten_by_design PRIVATE imgui)

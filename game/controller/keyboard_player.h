@@ -3,8 +3,8 @@
 
 #include <SDL3/SDL_events.h>
 
-#include "../config.h"
-#include "../../engine/entities/Player.h"
+#include "game/config.h"
+#include "engine/entities/Player.h"
 
 namespace game::controller {
     inline void keyboard_player(

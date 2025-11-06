@@ -1,4 +1,4 @@
-#include "Engine.h"
+#include "engine/Engine.h"
 
 #include <print>
 #include <stdexcept>
@@ -7,7 +7,7 @@
 
 #include "imgui_impl_sdl3.h"
 #include "imgui_impl_sdlrenderer3.h"
-#include "../utils/logging.h"
+#include "utils/logging.h"
 
 namespace engine {
     Engine::Engine() {

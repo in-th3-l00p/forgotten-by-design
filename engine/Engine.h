@@ -3,8 +3,8 @@
 
 #include <memory>
 
-#include "Window.h"
-#include "scene/Scene.h"
+#include "engine/Window.h"
+#include "engine/scene/Scene.h"
 
 namespace engine {
     class Engine {

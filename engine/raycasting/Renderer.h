@@ -1,8 +1,8 @@
 #ifndef RENDERER_H
 #define RENDERER_H
-#include "../../serialization/Map.h"
-#include "../entities/Player.h"
-#include "../Window.h"
+#include "serialization/Map.h"
+#include "engine/entities/Player.h"
+#include "engine/Window.h"
 
 namespace engine::raycasting {
     using entity::Player;
