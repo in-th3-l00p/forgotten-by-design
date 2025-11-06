@@ -1,8 +1,7 @@
 #include "TextureStore.h"
-#include <SDL3_image/SDL_image.h>
-
-#include "../../../../../../opt/homebrew/Cellar/sdl3/3.2.24/include/SDL3/SDL_surface.h"
 #include "utils/logging.h"
+#include <SDL3_image/SDL_image.h>
+#include <SDL3/SDL_surface.h>
 
 namespace engine::serialization {
     void TextureStore::load_texture(
