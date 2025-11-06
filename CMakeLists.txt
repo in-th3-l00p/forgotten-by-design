@@ -37,7 +37,7 @@ add_executable(forgotten_by_design main.cpp
         utils/Logging.h
         engine/raycasting/Renderer.cpp
         engine/raycasting/Renderer.h
-        serialization/Map.h
+        engine/entities/Map.h
         engine/entities/Player.h
         engine/scene/Scene.h
         game/game.h

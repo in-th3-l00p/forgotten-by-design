@@ -1,7 +1,7 @@
 #ifndef TESTMAP_H
 #define TESTMAP_H
 
-#include "serialization/Map.h"
+#include "../../engine/entities/Map.h"
 
 namespace game {
     class TestMap final : public engine::Map {

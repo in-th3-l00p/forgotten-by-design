@@ -11,7 +11,6 @@ dda raycasting FPS open source game
 
 * **engine** -> window, rendering alg & ecs *(low level stuff)*
 * **game** -> defining the game's content
-* **serialization** -> pretty self-explanatory
 * **utils** -> math, logging & other small concerns
 * **vendor** -> 3rd party integrated projects
 
