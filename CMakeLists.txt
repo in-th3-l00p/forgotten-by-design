@@ -38,7 +38,7 @@ add_executable(forgotten_by_design main.cpp
         engine/raycasting/Renderer.cpp
         engine/raycasting/Renderer.h
         serialization/Map.h
-        entities/Player.h
+        engine/entities/Player.h
         engine/scene/Scene.h
         game/game.h
         game/dev/RaycasterTestScene.cpp

@@ -4,7 +4,7 @@
 #include <SDL3/SDL_events.h>
 
 #include "../config.h"
-#include "../../entities/Player.h"
+#include "../../engine/entities/Player.h"
 
 namespace game::controller {
     inline void keyboard_player(
@@ -13,11 +13,11 @@ namespace game::controller {
     ) {
         SDL_PumpEvents();
         const bool *keyboard_state = SDL_GetKeyboardState(nullptr);
-        auto translate = static_cast<float>(
+        const auto translate = static_cast<float>(
                              keyboard_state[SDL_SCANCODE_W] -
                              keyboard_state[SDL_SCANCODE_S]
                          ) * config::translate_speed;
-        auto rotate = static_cast<float>(
+        const auto rotate = static_cast<float>(
                           keyboard_state[SDL_SCANCODE_D] -
                           keyboard_state[SDL_SCANCODE_A]
                       ) * config::rotate_speed;
