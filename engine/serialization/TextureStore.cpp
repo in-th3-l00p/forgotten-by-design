@@ -6,7 +6,7 @@
 namespace engine::serialization {
     void TextureStore::load_texture(
         const std::uint32_t id,
-        const char* path
+        const char *path
     ) {
         const auto surface = IMG_Load(path);
         if (surface == nullptr)
