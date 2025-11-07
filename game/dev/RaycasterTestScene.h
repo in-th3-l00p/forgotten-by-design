@@ -5,11 +5,16 @@
 #include "game/dev/TestMap.h"
 #include "engine/scene/Scene.h"
 #include "engine/raycasting/Renderer.h"
+#include "engine/serialization/TextureStore.h"
+
+using engine::serialization::TextureStore;
 
 namespace game::dev {
     class RaycasterTestScene: public engine::scene::Scene {
         TestMap map;
         engine::entities::Player player;
+
+        TextureStore textureStore;
         std::unique_ptr<engine::raycasting::Renderer> raycaster;
 
         void render_minimap() const;

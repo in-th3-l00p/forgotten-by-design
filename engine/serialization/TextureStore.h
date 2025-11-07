@@ -16,7 +16,7 @@ namespace engine::serialization {
 
         void load_texture(
             std::uint32_t id,
-            const std::string &path
+            const char* path
         );
 
         [[nodiscard]] texture get_texture(std::uint32_t id) const;

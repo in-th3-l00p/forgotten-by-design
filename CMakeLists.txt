@@ -60,3 +60,12 @@ target_include_directories(forgotten_by_design PRIVATE
 target_link_libraries(forgotten_by_design PRIVATE SDL3::SDL3)
 target_link_libraries(forgotten_by_design PRIVATE SDL3_image::SDL3_image)
 target_link_libraries(forgotten_by_design PRIVATE imgui)
+
+# copy assets
+add_custom_target(copy_assets ALL
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${CMAKE_SOURCE_DIR}/assets
+        ${CMAKE_BINARY_DIR}/assets
+)
+
+add_dependencies(forgotten_by_design copy_assets)

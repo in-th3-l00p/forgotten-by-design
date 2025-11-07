@@ -6,11 +6,11 @@
 namespace engine::serialization {
     void TextureStore::load_texture(
         const std::uint32_t id,
-        const std::string &path
+        const char* path
     ) {
-        const auto surface = IMG_Load(path.c_str());
+        const auto surface = IMG_Load(path);
         if (surface == nullptr)
-            throw std::runtime_error("failed to load texture: " + path + "; error: " + SDL_GetError());
+            throw std::runtime_error("failed to load texture: " + std::string(path) + "; error: " + SDL_GetError());
         auto texture = std::vector(surface->h, std::vector<std::uint32_t>(surface->w));
         for (int y = 0; y < surface->h; y++) {
             const auto row = static_cast<std::uint32_t *>(surface->pixels) + y * surface->pitch;

@@ -10,6 +10,8 @@ namespace game::dev {
         player(engine::entities::Player{{1.5, 1.5}, {1, 0}, 0.2})
     {
         raycaster = std::make_unique<engine::raycasting::Renderer>(map, player);
+        textureStore.load_texture(1, "assets/wall.png");
+        textureStore.load_texture(2, "assets/ceiling.png");
         logging::info("raycaster test scene loaded");
     }
 
